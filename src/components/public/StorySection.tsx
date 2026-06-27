@@ -1,0 +1,159 @@
+'use client';
+
+import Image from 'next/image';
+import { motion, type Variants } from 'framer-motion';
+import { cn } from '@/lib/utils/cn';
+import gabrielaPortrait from '../../../public/gabriela-cutout.png';
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+export default function StorySection() {
+  return (
+    <section
+      id="verhaal"
+      className={cn(
+        'tone-dark section-shell',
+      )}
+    >
+      <div
+        className={cn(
+          'section-inner grid',
+          'grid-cols-1 gap-10',
+          'min-[640px]:gap-12',
+          'min-[1024px]:grid-cols-[minmax(0,1.03fr)_minmax(380px,.86fr)] min-[1024px]:items-start min-[1024px]:gap-12',
+        )}
+      >
+        <motion.div
+          className="max-w-[880px]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={fadeUp}
+        >
+          <h2
+            className={cn(
+              'mb-5 font-serif font-semibold leading-[1.08] text-text-dark',
+              'text-[clamp(2rem,5vw,4.6rem)]',
+              'min-[640px]:mb-6',
+            )}
+          >
+            Ondernemen vanuit gevoel, aandacht en eigen regie.
+          </h2>
+
+          <div
+            aria-hidden="true"
+            className="mb-7 h-[2px] w-12 rounded-full bg-gradient-to-r from-deep-gold to-soft-gold/40 min-[640px]:mb-8 min-[640px]:w-16"
+          />
+
+          <div className="space-y-5 text-[1rem] leading-[1.75] text-text-muted min-[640px]:text-[1.08rem] min-[640px]:leading-relaxed">
+            <p>
+              Elevated is ontstaan vanuit een persoonlijke wake-upcall. Na een
+              periode waarin gezondheid en herstel centraal stonden, werd
+              &eacute;&eacute;n ding duidelijk: het mag ook gaan over kiezen
+              wat klopt.
+            </p>
+            <p>
+              Die manier van kijken vormt nu de basis. Niet harder of groter
+              om het groter. Maar bewuster. Met aandacht voor sfeer, verbinding
+              en betekenis.
+            </p>
+            <p>
+              Precies die aandacht neem ik mee in ieder event. Want een event
+              is pas sterk wanneer mensen niet alleen zien wat je merk doet,
+              maar ook voelen waar het voor staat.
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="grid gap-4 min-[640px]:gap-5 min-[1024px]:pt-2"
+        >
+          <aside
+            className={cn(
+              'relative overflow-hidden',
+              'rounded-[24px] min-[640px]:rounded-[28px]',
+              'border border-champagne/70',
+              'bg-white/[0.07] backdrop-blur-lg',
+              'p-6 min-[640px]:p-8',
+              'shadow-[0_12px_48px_rgba(0,0,0,.18)]',
+            )}
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-70"
+              style={{
+                background:
+                  'linear-gradient(135deg, rgba(243,225,184,.16), rgba(255,255,255,.035) 46%, rgba(170,122,40,.08))',
+              }}
+            />
+
+            <div
+              aria-hidden="true"
+              className="relative mb-5 h-[2px] w-14 rounded-full bg-gradient-to-r from-deep-gold via-soft-gold to-deep-gold/20"
+            />
+            <p className="relative mb-4 font-[family-name:var(--font-accent)] text-[1.12rem] italic leading-[1.55] text-text-dark min-[640px]:text-[1.22rem]">
+              Elevated staat voor optillen, verfijnen en bewust versterken. Niet
+              overdreven. Niet standaard. Maar precies passend bij jouw merk.
+            </p>
+            <p className="relative max-w-[34rem] text-[.95rem] leading-[1.75] text-text-muted min-[640px]:text-base">
+              Van eerste indruk tot laatste moment: elk detail draagt bij aan het
+              geheel.
+            </p>
+          </aside>
+
+          <aside
+            aria-label="Profiel van Gabriela Mihalcea"
+            className={cn(
+              'relative overflow-hidden',
+              'rounded-[24px] min-[640px]:rounded-[28px]',
+              'border border-border-soft/70',
+              'bg-white/[0.06] backdrop-blur-md',
+              'shadow-[0_16px_54px_rgba(0,0,0,.2)]',
+            )}
+          >
+            <div className="grid gap-0 min-[760px]:grid-cols-[minmax(0,.9fr)_minmax(220px,.72fr)] min-[1024px]:grid-cols-1">
+              <div className="relative aspect-[4/3] min-h-[260px] overflow-hidden bg-[#100b06] min-[760px]:aspect-auto min-[1024px]:aspect-[4/3]">
+                <Image
+                  src={gabrielaPortrait}
+                  alt="Gabriela Mihalcea van Elevated Eventmaker"
+                  fill
+                  sizes="(min-width: 1024px) 430px, (min-width: 760px) 48vw, 100vw"
+                  className="object-cover object-[50%_58%]"
+                  priority
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-[#050403]/72 via-transparent to-transparent"
+                />
+              </div>
+
+              <div className="relative p-6 min-[640px]:p-7">
+                <p className="mb-2 text-[.72rem] font-extrabold uppercase tracking-[.24em] text-deep-gold">
+                  Founder & eventmaker
+                </p>
+                <h3 className="mb-3 font-serif text-[1.35rem] font-semibold leading-tight text-text-dark min-[640px]:text-[1.6rem]">
+                  Gabriela Mihalcea
+                </h3>
+                <p className="text-[.94rem] leading-[1.75] text-text-muted min-[640px]:text-[.98rem]">
+                  Combineert gevoel, structuur en oog voor detail tot events die
+                  professioneel aanvoelen zonder hun warmte te verliezen.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
