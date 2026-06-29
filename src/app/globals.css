@@ -70,77 +70,125 @@
     radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.12) 72%, rgba(0, 0, 0, 0.38) 100%);
 }
 
-.elevated-particle-layer {
+.elevated-bubble-layer {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  opacity: 0.82;
+  opacity: 0.95;
 }
 
-.elevated-particle {
+.elevated-bubble {
   position: absolute;
-  bottom: -24px;
-  left: var(--particle-left);
-  width: var(--particle-size);
-  height: var(--particle-size);
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 245, 222, 0.95) 0%, rgba(170, 122, 40, 0.72) 55%, transparent 100%);
+  bottom: -20px;
+  left: var(--b-left);
+  width: var(--b-size);
+  height: var(--b-size);
+  border-radius: 50%;
+  background: transparent;
+  border: 0.6px solid rgba(255, 248, 225, 0.45);
   box-shadow:
-    0 0 14px rgba(255, 210, 119, 0.34),
-    0 0 2px rgba(23, 19, 13, 0.5);
+    inset 0 0 2px rgba(255, 250, 235, 0.15),
+    inset 0 -1px 3px rgba(255, 240, 200, 0.1),
+    0 0 4px rgba(255, 240, 200, 0.12);
   opacity: 0;
-  animation: elevated-particle-float var(--particle-duration) linear infinite;
-  animation-delay: var(--particle-delay);
+  animation: bubble-rise var(--b-dur) linear infinite;
+  animation-delay: var(--b-delay);
 }
 
-@keyframes elevated-particle-float {
+.elevated-bubble::after {
+  content: '';
+  position: absolute;
+  width: 28%;
+  height: 28%;
+  top: 14%;
+  left: 18%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%);
+  transform: rotate(var(--b-highlight));
+}
+
+.elevated-bubble[data-tier="micro"] {
+  border-width: 0.4px;
+  border-color: rgba(255, 252, 240, 0.38);
+  box-shadow:
+    inset 0 0 1px rgba(255, 250, 240, 0.12),
+    0 0 2px rgba(255, 245, 215, 0.1);
+}
+
+.elevated-bubble[data-tier="micro"]::after {
+  width: 22%;
+  height: 22%;
+  background: radial-gradient(circle,
+    rgba(255, 255, 255, 0.5) 0%,
+    transparent 70%);
+}
+
+.elevated-bubble[data-tier="medium"] {
+  border-width: 0.7px;
+  border-color: rgba(255, 245, 215, 0.5);
+  box-shadow:
+    inset 0 0 3px rgba(255, 248, 225, 0.18),
+    inset 0 -2px 4px rgba(255, 235, 180, 0.12),
+    0 0 6px rgba(255, 240, 195, 0.14);
+}
+
+.elevated-bubble[data-tier="large"] {
+  border-width: 1px;
+  border-color: rgba(255, 242, 205, 0.55);
+  box-shadow:
+    inset 0 0 5px rgba(255, 248, 225, 0.2),
+    inset 0 -3px 6px rgba(255, 235, 180, 0.15),
+    inset 0 2px 4px rgba(255, 255, 255, 0.08),
+    0 0 10px rgba(255, 235, 185, 0.18),
+    0 0 3px rgba(255, 250, 230, 0.12);
+}
+
+.elevated-bubble[data-tier="large"]::after {
+  width: 30%;
+  height: 30%;
+  top: 12%;
+  left: 16%;
+  background: radial-gradient(circle at 40% 40%,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.3) 40%,
+    transparent 100%);
+}
+
+@keyframes bubble-rise {
   0% {
     opacity: 0;
-    transform: translate3d(0, 0, 0) scale(0.6);
+    transform: translate3d(0, 0, 0) scale(0.7);
   }
 
-  8% {
-    opacity: var(--particle-opacity);
+  3% {
+    opacity: var(--b-opacity);
   }
 
-  20% {
-    transform: translate3d(calc(var(--particle-drift) * 0.18 + 6px), -22vh, 0) scale(0.72);
-  }
-
-  40% {
-    transform: translate3d(calc(var(--particle-drift) * 0.38 - 5px), -45vh, 0) scale(0.82);
-  }
-
-  60% {
-    transform: translate3d(calc(var(--particle-drift) * 0.58 + 4px), -67vh, 0) scale(0.9);
-  }
-
-  80% {
-    transform: translate3d(calc(var(--particle-drift) * 0.78 - 3px), -90vh, 0) scale(0.96);
-  }
-
-  90% {
-    opacity: var(--particle-opacity);
+  93% {
+    opacity: var(--b-opacity);
   }
 
   100% {
     opacity: 0;
-    transform: translate3d(var(--particle-drift), -112vh, 0) scale(1.05);
+    transform: translate3d(var(--b-drift), -108vh, 0) scale(1.1);
   }
 }
 
 @media (max-width: 639px) {
-  .elevated-particle-layer {
-    opacity: 0.68;
+  .elevated-bubble-layer {
+    opacity: 0.78;
   }
 
-  .elevated-particle[data-mobile-hidden="true"] {
+  .elevated-bubble[data-mobile-hidden="true"] {
     display: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .elevated-particle {
+  .elevated-bubble {
     animation: none;
     opacity: 0.18;
     transform: translateY(-42vh);
@@ -149,6 +197,74 @@
 
 .particle-site-content {
   color: var(--color-text-dark);
+}
+
+/* ── Elevated card — premium dark glass ── */
+.elevated-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.055) 0%, rgba(214, 180, 106, 0.035) 100%);
+  border: 1px solid rgba(243, 223, 159, 0.1);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.22),
+    0 1px 2px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(243, 223, 159, 0.06);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.elevated-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 25% 0%, rgba(214, 180, 106, 0.08) 0%, transparent 55%);
+}
+
+.elevated-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(90deg, transparent, rgba(214, 180, 106, 0.3), transparent);
+  opacity: 0.5;
+  transition: opacity 500ms;
+}
+
+.elevated-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.elevated-card:hover {
+  border-color: rgba(243, 223, 159, 0.22);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.32),
+    0 2px 6px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(243, 223, 159, 0.1);
+  transform: translateY(-3px);
+}
+
+.elevated-card:hover::after {
+  opacity: 0.85;
+}
+
+@media (min-width: 640px) {
+  .elevated-card {
+    border-radius: 28px;
+  }
 }
 
 .section-shell {
@@ -161,39 +277,55 @@
   margin-inline: auto;
 }
 
-.tone-light .text-text-dark,
-.tone-warm .text-text-dark {
+/* ── Tone: light (top of page, light background) ── */
+.tone-light .text-text-dark {
   color: #17130d;
 }
 
 .tone-light .text-text-muted,
-.tone-warm .text-text-muted,
-.tone-light .text-text-muted\/70,
-.tone-warm .text-text-muted\/70 {
+.tone-light .text-text-muted\/70 {
   color: rgba(23, 19, 13, 0.72);
 }
 
 .tone-light .border-border-soft,
 .tone-light .border-border-soft\/50,
-.tone-light .border-border-soft\/60,
-.tone-warm .border-border-soft,
-.tone-warm .border-border-soft\/50,
-.tone-warm .border-border-soft\/60 {
+.tone-light .border-border-soft\/60 {
   border-color: rgba(23, 19, 13, 0.18);
 }
 
 .tone-light .bg-white\/65,
 .tone-light .bg-white\/70,
 .tone-light .bg-white\/75,
-.tone-light .bg-white\/80,
-.tone-warm .bg-white\/65,
-.tone-warm .bg-white\/70,
-.tone-warm .bg-white\/75,
-.tone-warm .bg-white\/80 {
+.tone-light .bg-white\/80 {
   background-color: rgba(255, 255, 255, 0.62);
   box-shadow: 0 18px 60px rgba(62, 38, 8, 0.1);
 }
 
+/* ── Tone: warm (transitional zone, golden background) ── */
+.tone-warm .text-text-dark {
+  color: #3a2810;
+}
+
+.tone-warm .text-text-muted,
+.tone-warm .text-text-muted\/70 {
+  color: rgba(48, 34, 14, 0.78);
+}
+
+.tone-warm .border-border-soft,
+.tone-warm .border-border-soft\/50,
+.tone-warm .border-border-soft\/60 {
+  border-color: rgba(100, 72, 28, 0.28);
+}
+
+.tone-warm .bg-white\/65,
+.tone-warm .bg-white\/70,
+.tone-warm .bg-white\/75,
+.tone-warm .bg-white\/80 {
+  background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 18px 60px rgba(40, 28, 8, 0.12);
+}
+
+/* ── Tone: dim & dark (dark background) ── */
 .tone-dim .text-text-dark,
 .tone-dark .text-text-dark,
 .tone-dim .text-text-muted,
@@ -225,6 +357,16 @@
 .tone-dark .bg-white\/80 {
   background-color: rgba(255, 255, 255, 0.075);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+}
+
+/* ── Elevated-card: always light text inside (dark glass background) ── */
+.elevated-card .text-text-dark {
+  color: rgba(255, 244, 216, 0.94);
+}
+
+.elevated-card .text-text-muted,
+.elevated-card .text-text-muted\/70 {
+  color: rgba(226, 210, 177, 0.68);
 }
 
 .btn-elevated {

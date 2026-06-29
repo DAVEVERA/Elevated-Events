@@ -126,14 +126,6 @@ export default function HeroSection() {
           Elevated vertaalt jouw merk naar zakelijke live events die vanaf de eerste indruk kloppen: stijlvol, strategisch, volledig ontzorgd en ontworpen om karakter, impact en herkenning te versterken.
         </motion.h1>
 
-        <motion.p
-          custom={0.34}
-          variants={fadeUp}
-          className="mx-auto mb-6 max-w-[780px] text-[clamp(1rem,1.55vw,1.17rem)] leading-[1.7] text-text-muted"
-        >
-          Wij creëren geen tijdelijk decor, maar een onvergetelijke ervaring die blijft hangen, relaties verdiept en bezoekers verandert in ambassadeurs.
-        </motion.p>
-
         <motion.div
           custom={0.44}
           variants={fadeUp}

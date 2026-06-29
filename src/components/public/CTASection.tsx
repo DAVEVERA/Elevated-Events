@@ -21,6 +21,7 @@ export default function CTASection() {
         'tone-dark section-shell text-center',
       )}
     >
+      <div className="section-inner">
       <motion.div
         className="mx-auto max-w-[850px]"
         initial="hidden"
@@ -74,6 +75,7 @@ export default function CTASection() {
           </a>
         </div>
       </motion.div>
+      </div>
     </section>
   );
 }

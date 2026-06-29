@@ -32,7 +32,7 @@ export default function LegalPage({ title, intro, sections }: LegalPageProps) {
           {sections.map((section) => (
             <article
               key={section.title}
-              className="rounded-[24px] border border-border-soft bg-white/70 p-6 backdrop-blur-md min-[640px]:p-8"
+              className="elevated-card p-6 min-[640px]:p-8"
             >
               <h2 className="mb-3 text-xl font-semibold text-text-dark">
                 {section.title}

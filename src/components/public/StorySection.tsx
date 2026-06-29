@@ -77,22 +77,10 @@ export default function StorySection() {
         >
           <aside
             className={cn(
-              'relative overflow-hidden',
-              'rounded-[24px] min-[640px]:rounded-[28px]',
-              'border border-champagne/70',
-              'bg-white/[0.07] backdrop-blur-lg',
+              'elevated-card',
               'p-6 min-[640px]:p-8',
-              'shadow-[0_12px_48px_rgba(0,0,0,.18)]',
             )}
           >
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-70"
-              style={{
-                background:
-                  'linear-gradient(135deg, rgba(243,225,184,.16), rgba(255,255,255,.035) 46%, rgba(170,122,40,.08))',
-              }}
-            />
             <div
               aria-hidden="true"
               className="relative mb-5 h-[2px] w-14 rounded-full bg-gradient-to-r from-deep-gold via-soft-gold to-deep-gold/20"

@@ -184,7 +184,7 @@ export default function Header() {
             <img
               src="/logo-elevated-gold.svg"
               alt="Elevated"
-              className="h-[336px] w-auto -translate-y-[121px] min-[520px]:h-[400px] min-[520px]:-translate-y-[144px] min-[900px]:h-[470px] min-[900px]:-translate-y-[169px]"
+              className="h-[336px] w-auto -translate-y-[121px] min-[520px]:h-[400px] min-[520px]:-translate-y-[144px] min-[900px]:h-[430px] min-[900px]:-translate-y-[169px]"
             />
           </Link>
 

@@ -87,12 +87,8 @@ export default function ProcessSection() {
                 whileInView="visible"
                 viewport={{ once: true, margin: '-40px' }}
                 className={cn(
-                  'relative grid items-start gap-5',
-                  'rounded-[22px] min-[640px]:rounded-[26px]',
-                  'border border-border-soft/60',
-                  'bg-white/65 backdrop-blur-md',
+                  'elevated-card grid items-start gap-5',
                   'p-6 min-[640px]:p-7',
-                  'shadow-[0_4px_24px_rgba(170,122,40,.06)]',
                   'grid-cols-1',
                   'min-[640px]:grid-cols-[80px_1fr] min-[640px]:gap-7',
                   'min-[1024px]:grid-cols-[90px_1fr]',

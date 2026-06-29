@@ -98,17 +98,9 @@ export default function ServicesSection() {
               whileInView="visible"
               viewport={{ once: true, margin: '-60px' }}
               className={cn(
-                'group relative overflow-hidden',
-                'rounded-[26px] min-[640px]:rounded-[30px]',
-                'border border-border-soft',
-                'bg-white/70 backdrop-blur-md',
+                'elevated-card group',
                 'p-7 min-[640px]:p-[30px]',
                 'min-[640px]:min-h-[220px]',
-                'shadow-[0_8px_40px_rgba(170,122,40,.07)]',
-                'transition-all duration-500 ease-out',
-                'hover:shadow-[0_16px_56px_rgba(170,122,40,.14)]',
-                'hover:-translate-y-1',
-                'hover:border-soft-gold/50',
               )}
             >
               <div
