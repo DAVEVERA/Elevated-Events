@@ -28,23 +28,24 @@ const bubbles: BubbleData[] = Array.from({ length: TOTAL }, (_, index) => {
   if (pct < 0.72) {
     tier = 'micro';
     size = 2 + ((seed * 37) % 30) / 10;
-    duration = 6 + ((seed * 29) % 7);
+    duration = 3 + ((seed * 29) % 4);
     opacity = 0.25 + ((seed * 19) % 35) / 100;
   } else if (pct < 0.92) {
     tier = 'medium';
     size = 5 + ((seed * 41) % 40) / 10;
-    duration = 8 + ((seed * 31) % 9);
+    duration = 4 + ((seed * 31) % 5);
     opacity = 0.3 + ((seed * 23) % 40) / 100;
   } else {
     tier = 'large';
     size = 9 + ((seed * 43) % 60) / 10;
-    duration = 10 + ((seed * 37) % 10);
+    duration = 5 + ((seed * 37) % 6);
     opacity = 0.35 + ((seed * 17) % 30) / 100;
   }
 
-  const left = (seed * 47) % 100;
+  const hash = ((seed * 2654435761) >>> 0) % 10000;
+  const left = (hash % 10000) / 100;
   const drift = ((seed * 53) % 24) - 12;
-  const delay = -((seed * 17) % 35);
+  const delay = -(((seed * 7919) >>> 0) % 50);
   const highlightAngle = 300 + ((seed * 71) % 40);
 
   return {
