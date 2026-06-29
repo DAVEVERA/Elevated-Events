@@ -121,9 +121,9 @@ export default function HeroSection() {
           id="hero-title"
           custom={0.24}
           variants={fadeUp}
-          className="mb-3 font-serif text-[clamp(1.35rem,3.4vw,2.65rem)] leading-[1.08] text-text-dark"
+          className="mb-3 max-w-[920px] font-serif text-[clamp(1.15rem,2.6vw,2rem)] leading-[1.08] text-text-dark"
         >
-          Eventbranding voor zakelijke live events
+          Elevated vertaalt jouw merk naar zakelijke live events die vanaf de eerste indruk kloppen: stijlvol, strategisch, volledig ontzorgd en ontworpen om karakter, impact en herkenning te versterken.
         </motion.h1>
 
         <motion.p
@@ -131,8 +131,7 @@ export default function HeroSection() {
           variants={fadeUp}
           className="mx-auto mb-6 max-w-[780px] text-[clamp(1rem,1.55vw,1.17rem)] leading-[1.7] text-text-muted"
         >
-          Geen losse styling, maar een bewuste merkbeleving waarin
-          sfeer, strategie en gevoel samenkomen.
+          Wij creëren geen tijdelijk decor, maar een onvergetelijke ervaring die blijft hangen, relaties verdiept en bezoekers verandert in ambassadeurs.
         </motion.p>
 
         <motion.div

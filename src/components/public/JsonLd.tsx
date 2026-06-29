@@ -99,7 +99,7 @@ export function ServiceJsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${siteUrl}/#eventbranding-service`,
-    name: 'Eventbranding voor zakelijke live events',
+    name: 'Elevated vertaalt jouw merk naar zakelijke live events',
     provider: {
       '@id': `${siteUrl}/#organization`,
     },

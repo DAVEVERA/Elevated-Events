@@ -1,20 +1,20 @@
 import type { CSSProperties } from 'react';
 
-const particles = Array.from({ length: 72 }, (_, index) => {
+const particles = Array.from({ length: 160 }, (_, index) => {
   const seed = index + 1;
-  const size = 1 + ((seed * 37) % 30) / 10;
+  const size = 0.8 + ((seed * 37) % 28) / 10;
   const left = (seed * 47) % 100;
-  const duration = 14 + ((seed * 29) % 18);
-  const delay = -((seed * 17) % 30);
-  const drift = ((seed * 53) % 160) - 80;
-  const opacity = 0.28 + ((seed * 19) % 34) / 100;
+  const duration = 10 + ((seed * 29) % 22);
+  const delay = -((seed * 17) % 40);
+  const drift = ((seed * 53) % 200) - 100;
+  const opacity = 0.32 + ((seed * 19) % 38) / 100;
 
   return {
     delay,
     drift,
     duration,
     left,
-    mobileHidden: index >= 42,
+    mobileHidden: index >= 90,
     opacity,
     size,
   };
