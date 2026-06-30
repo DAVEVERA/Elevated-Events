@@ -189,9 +189,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .elevated-bubble {
-    animation: none;
-    opacity: 0.18;
-    transform: translateY(-42vh);
+    display: none;
   }
 }
 
